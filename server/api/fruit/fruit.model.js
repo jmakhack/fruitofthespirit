@@ -5,8 +5,7 @@ var mongoose = require('mongoose'),
 
 var FruitSchema = new Schema({
   name: String,
-  info: String,
-  active: Boolean
+  verses: [{text: String, reference: String}]
 });
 
 module.exports = mongoose.model('Fruit', FruitSchema);

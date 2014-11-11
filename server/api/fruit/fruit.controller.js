@@ -11,15 +11,6 @@ exports.index = function(req, res) {
   });
 };
 
-// Get a single fruit
-exports.show = function(req, res) {
-  Fruit.findById(req.params.id, function (err, fruit) {
-    if(err) { return handleError(res, err); }
-    if(!fruit) { return res.send(404); }
-    return res.json(fruit);
-  });
-};
-
 // Creates a new fruit in the DB.
 exports.create = function(req, res) {
   Fruit.create(req.body, function(err, fruit) {
