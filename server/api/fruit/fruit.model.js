@@ -4,7 +4,7 @@ var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
 var FruitSchema = new Schema({
-  name: String,
+  name: {type: String, required: true},
   verses: [{text: String, reference: String}]
 });
 
