@@ -25,8 +25,22 @@ exports.update = function(req, res) {
   Fruit.findById(req.params.id, function (err, fruit) {
     if (err) { return handleError(res, err); }
     if(!fruit) { return res.send(404); }
-    var updated = _.merge(fruit, req.body);
-    updated.save(function (err) {
+    fruit.verses = req.body.verses;
+    fruit.save(function (err) {
+      if (err) { return handleError(res, err); }
+      return res.json(200, fruit);
+    });
+  });
+};
+
+// Updates an existing fruit in the DB.
+exports.add = function(req, res) {
+  if(req.body._id) { delete req.body._id; }
+  Fruit.findById(req.params.id, function (err, fruit) {
+    if (err) { return handleError(res, err); }
+    if(!fruit) { return res.send(404); }
+    fruit.verses.push(req.body.verses);
+    fruit.save(function (err) {
       if (err) { return handleError(res, err); }
       return res.json(200, fruit);
     });
