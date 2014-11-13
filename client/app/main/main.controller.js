@@ -55,6 +55,9 @@ angular.module('fruitsofthespiritApp')
 
 		function getVerse(fruit) {
 			var verses = getFruit(fruit).verses;
+			if(verses.length === 0) {
+				return {text: "", reference: ""};
+			}
 			var verse;
 			do {
 				verse = verses[Math.floor(Math.random()*verses.length)];
