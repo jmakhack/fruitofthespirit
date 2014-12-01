@@ -1,0 +1,96 @@
+[
+	{
+		"fruit" : "love",
+		"verses" : 
+		[
+			{
+				"text" : "testing testing 1 2 3",
+				"reference" : "test 1"
+			},
+			{
+				"text" : "another test 3 2 1",
+				"reference" : "t 2"
+			}
+		]
+	},
+	{
+		"fruit" : "joy",
+		"verses" : 
+		[
+			{
+				"text" : "",
+				"reference" : ""
+			}
+		]
+	},
+	{
+		"fruit" : "peace",
+		"verses" : 
+		[
+			{
+				"text" : "",
+				"reference" : ""
+			}
+		]
+	},
+	{
+		"fruit" : "patience",
+		"verses" : 
+		[
+			{
+				"text" : "",
+				"reference" : ""
+			}
+		]
+	},
+	{
+		"fruit" : "kindness",
+		"verses" : 
+		[
+			{
+				"text" : "",
+				"reference" : ""
+			}
+		]
+	},
+	{
+		"fruit" : "goodness",
+		"verses" : 
+		[
+			{
+				"text" : "",
+				"reference" : ""
+			}
+		]
+	},
+	{
+		"fruit" : "faithfulness",
+		"verses" : 
+		[
+			{
+				"text" : "",
+				"reference" : ""
+			}
+		]
+	},
+	{
+		"fruit" : "gentleness",
+		"verses" : 
+		[
+			{
+				"text" : "",
+				"reference" : ""
+			}
+		]
+	},
+	{
+		"fruit" : "selfcontrol",
+		"verses" : 
+		[
+			{
+				"text" : "",
+				"reference" : ""
+			}
+		]
+	}
+]
