@@ -1,13 +1,5 @@
-'use strict';
-
-angular.module('fruitsofthespiritApp')
-  .controller('MainCtrl', function ($scope, $http) {
-
-    $http.get('/api/fruits').success(function(fruits) {
-      $scope.fruits = fruits;
-    });
-
-    $(document).ready(function() {
+$(document).ready(function() {
+	$.getJSON('verses.json', function(json) {
 
 		var tabOpen = null;
 		var curText = $('.title');
@@ -36,6 +28,7 @@ angular.module('fruitsofthespiritApp')
 				interval = setInterval(function() { changeText(tabOpen.attr('id')); }, switchSpeed);
 			} else if(parseInt($(this).css('left')) === 0) {
 				clearInterval(interval);
+				prevVerse = null;
 				tabOpen.animate({left: "-=200"}, fadeSpeed, function() {});
 				tabOpen = null;
 				curText.fadeOut(fadeSpeed);
@@ -55,22 +48,21 @@ angular.module('fruitsofthespiritApp')
 
 		function getVerse(fruit) {
 			var verses = getFruit(fruit).verses;
-			if(verses.length === 0) {
-				return {text: "", reference: ""};
-			}
 			var verse;
+			var tries = 0;
 			do {
 				verse = verses[Math.floor(Math.random()*verses.length)];
-			} while(verse === prevVerse);
+				tries += 1;
+			} while(verse === prevVerse && tries < 3);
 			prevVerse = verse;
 			return verse;
 		}
 
 		function getFruit(fruit) {
-			for(var i = 0; i < $scope.fruits.length; i++) 
-    		if($scope.fruits[i].name === fruit)
-    			return $scope.fruits[i];
+			for(var i = 0; i < json.length; i++)
+    		if(json[i].fruit === fruit)
+    			return json[i];
     		return null
 		}
 	});
-  });
+});
