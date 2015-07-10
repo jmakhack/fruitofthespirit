@@ -4,12 +4,68 @@
 		"verses" : 
 		[
 			{
-				"text" : "testing testing 1 2 3",
-				"reference" : "test 1"
+				"text" : "Because lawlessness is increased, most people’s love will grow cold.",
+				"reference" : "Matthew 24:12"
 			},
 			{
-				"text" : "another test 3 2 1",
-				"reference" : "t 2"
+				"text" : "But woe to you Pharisees! For you pay tithe of mint and rue and every kind of garden herb, and yet disregard justice and the love of God; but these are the things you should have done without neglecting the others.",
+				"reference" : "Luke 11:42"
+			},
+			{
+				"text" : "I do not receive glory from men; but I know you, that you do not have the love of God in yourselves.",
+				"reference" : "John 5:41-42"
+			},
+			{
+				"text" : "By this all men will know that you are My disciples, if you have love for one another.",
+				"reference" : "John 13:35"
+			},
+			{
+				"text" : "Just as the Father has loved Me, I have also loved you; abide in My love.",
+				"reference" : "John 15:9"
+			},
+			{
+				"text" : "If you keep My commandments, you will abide in My love; just as I have kept My Father’s commandments and abide in His love.",
+				"reference" : "John 15:10"
+			},
+			{
+				"text" : "Greater love has no one than this, that one lay down his life for his friends.",
+				"reference" : "John 15:13"
+			},
+			{
+				"text" : "O righteous Father, though the world has not known You, yet I have known You; and these have known that You sent Me; and I have made Your name known to them, and will make it known, so that the love with which You loved Me may be in them, and I in them.",
+				"reference" : "John 17:25-26"
+			},
+			{
+				"text" : "And not only this, but we also exult in our tribulations, knowing that tribulation brings about perseverance; and perseverance, proven character; and proven character, hope; and hope does not disappoint, because the love of God has been poured out within our hearts through the Holy Spirit who was given to us.",
+				"reference" : "Romans 5:3-5"
+			},
+			{
+				"text" : "But God demonstrates His own love toward us, in that while we were yet sinners, Christ died for us.",
+				"reference" : "Romans 5:8"
+			},
+			{
+				"text" : "Who will separate us from the love of Christ? Will tribulation, or distress, or persecution, or famine, or nakedness, or peril, or sword?",
+				"reference" : "Romans 8:35"
+			},
+			{
+				"text" : "For I am convinced that neither death, nor life, nor angels, nor principalities, nor things present, nor things to come, nor powers, nor height, nor depth, nor any other created thing, will be able to separate us from the love of God, which is in Christ Jesus our Lord.",
+				"reference" : "Romans 8:38-39"
+			},
+			{
+				"text" : "Let love be without hypocrisy. Abhor what is evil; cling to what is good.",
+				"reference" : "Romans 12:9"
+			},
+			{
+				"text" : "Love does no wrong to a neighbor; therefore love is the fulfillment of the law.",
+				"reference" : "Romans 13:10"
+			},
+			{
+				"text" : "For if because of food your brother is hurt, you are no longer walking according to love. Do not destroy with your food him for whom Christ died.",
+				"reference" : "Romans 14:15"
+			},
+			{
+				"text" : "Now I urge you, brethren, by our Lord Jesus Christ and by the love G26 of the Spirit, to strive together with me in your prayers to God for me,",
+				"reference" : "Romans 15:30"
 			}
 		]
 	},
@@ -18,8 +74,32 @@
 		"verses" : 
 		[
 			{
-				"text" : "",
-				"reference" : ""
+				"text" : "When they saw the star, they rejoiced exceedingly with great joy.",
+				"reference" : "Matthew 2:10"
+			},
+			{
+				"text" : "The one on whom seed was sown on the rocky places, this is the man who hears the word and immediately receives it with joy; yet he has no firm root in himself, but is only temporary, and when affliction or persecution arises because of the word, immediately he falls away.",
+				"reference" : "Matthew 13:20-21"
+			},
+			{
+				"text" : "The kingdom of heaven is like a treasure hidden in the field, which a man found and hid again; and from joy over it he goes and sells all that he has and buys that field.",
+				"reference" : "Matthew 13:44"
+			},
+			{
+				"text" : "His master said to him, ‘Well done, good and faithful slave. You were faithful with a few things, I will put you in charge of many things; enter into the joy of your master.’",
+				"reference" : "Matthew 25:21"
+			},
+			{
+				"text" : "His master said to him, ‘Well done, good and faithful slave. You were faithful with a few things, I will put you in charge of many things; enter into the joy of your master.’",
+				"reference" : "Matthew 25:23"
+			},
+			{
+				"text" : "And they left the tomb quickly with fear and great joy and ran to report it to His disciples.",
+				"reference" : "Matthew 28:8"
+			},
+			{
+				"text" : "In a similar way these are the ones on whom seed was sown on the rocky places, who, when they hear the word, immediately receive it with joy; and they have no firm root in themselves, but are only temporary; then, when affliction or persecution arises because of the word, immediately they fall away.",
+				"reference" : "Mark 4:16-17"
 			}
 		]
 	},
@@ -28,8 +108,16 @@
 		"verses" : 
 		[
 			{
-				"text" : "",
-				"reference" : ""
+				"text" : "And whatever city or village you enter, inquire who is worthy in it, and stay at his house until you leave that city. As you enter the house, give it your greeting. If the house is worthy, give it your blessing of peace. But if it is not worthy, take back your blessing of peace.",
+				"reference" : "Matthew 10:11-13"
+			},
+			{
+				"text" : "Do not think that I came to bring peace on the earth; I did not come to bring peace, but a sword.",
+				"reference" : "Matthew 10:34"
+			},
+			{
+				"text" : "And He said to her, \"Daughter, your faith has made you well; go in peace and be healed of your affliction.\"",
+				"reference" : "Mark 5:34"
 			}
 		]
 	},
@@ -38,8 +126,60 @@
 		"verses" : 
 		[
 			{
-				"text" : "",
-				"reference" : ""
+				"text" : "Or do you think lightly of the riches of His kindness and tolerance and patience, not knowing that the kindness of God leads you to repentance?",
+				"reference" : "Romans 2:4"
+			},
+			{
+				"text" : "What if God, although willing to demonstrate His wrath and to make His power known, endured with much patience vessels of wrath prepared for destruction?",
+				"reference" : "Romans 9:22"
+			},
+			{
+				"text" : "but in everything commending ourselves as servants of God, in much endurance, in afflictions, in hardships, in distresses, in beatings, in imprisonments, in tumults, in labors, in sleeplessness, in hunger, in purity, in knowledge, in patience, in kindness, in the Holy Spirit, in genuine love,",
+				"reference" : "2 Corinthians 6:4-6"
+			},
+			{
+				"text" : "But the fruit of the Spirit is love, joy, peace, patience, kindness, goodness, faithfulness, gentleness, self-control; against such things there is no law.",
+				"reference" : "Galatians 5:22-23"
+			},
+			{
+				"text" : "Therefore I, the prisoner of the Lord, implore you to walk in a manner worthy of the calling with which you have been called, with all humility and gentleness, with patience, showing tolerance for one another in love, being diligent to preserve the unity of the Spirit in the bond of peace.",
+				"reference" : "Ephesians 4:1-3"
+			},
+			{
+				"text" : "strengthened with all power, according to His glorious might, for the attaining of all steadfastness and patience; joyously giving thanks to the Father, who has qualified us to share in the inheritance of the saints in Light.",
+				"reference" : "Colossians 1:11-12"
+			},
+			{
+				"text" : "So, as those who have been chosen of God, holy and beloved, put on a heart of compassion, kindness, humility, gentleness and patience;",
+				"reference" : "Colossians 3:12"
+			},
+			{
+				"text" : "Yet for this reason I found mercy, so that in me as the foremost, Jesus Christ might demonstrate His perfect patience as an example for those who would believe in Him for eternal life.",
+				"reference" : "1 Timothy 1:16"
+			},
+			{
+				"text" : "Now you followed my teaching, conduct, purpose, faith, patience, love, perseverance, persecutions, and sufferings, such as happened to me at Antioch, at Iconium and at Lystra; what persecutions I endured, and out of them all the Lord rescued me!",
+				"reference" : "2 Timothy 3:10-11"
+			},
+			{
+				"text" : "I solemnly charge you in the presence of God and of Christ Jesus, who is to judge the living and the dead, and by His appearing and His kingdom: preach the word; be ready in season and out of season; reprove, rebuke, exhort, with great patience and instruction.",
+				"reference" : "2 Timothy 4:1-2"
+			},
+			{
+				"text" : "And we desire that each one of you show the same diligence so as to realize the full assurance of hope until the end, so that you will not be sluggish, but imitators of those who through faith and patience inherit the promises.",
+				"reference" : "Hebrews 6:11-12"
+			},
+			{
+				"text" : "As an example, brethren, of suffering and patience, take the prophets who spoke in the name of the Lord.",
+				"reference" : "James 5:10"
+			},
+			{
+				"text" : "Corresponding to that, baptism now saves you—not the removal of dirt from the flesh, but an appeal to God for a good conscience—through the resurrection of Jesus Christ, who is at the right hand of God, having gone into heaven, after angels and authorities and powers had been subjected to Him.",
+				"reference" : "1 Peter 3:21-22"
+			},
+			{
+				"text" : "Therefore, beloved, since you look for these things, be diligent to be found by Him in peace, spotless and blameless, and regard the patience of our Lord as salvation; just as also our beloved brother Paul, according to the wisdom given him, wrote to you,",
+				"reference" : "2 Peter 3:14-15"
 			}
 		]
 	},
@@ -48,8 +188,36 @@
 		"verses" : 
 		[
 			{
-				"text" : "",
-				"reference" : ""
+				"text" : "Or do you think lightly of the riches of His kindness and tolerance and patience, not knowing that the kindness of God leads you to repentance?",
+				"reference" : "Romans 2:4"
+			},
+			{
+				"text" : "ALL HAVE TURNED ASIDE, TOGETHER THEY HAVE BECOME USELESS; THERE IS NONE WHO DOES GOOD, THERE IS NOT EVEN ONE.",
+				"reference" : "Romans 3:12"
+			},
+			{
+				"text" : "Behold then the kindness and severity of God; to those who fell, severity, but to you, God’s kindness, if you continue in His kindness; otherwise you also will be cut off.",
+				"reference" : "Romans 11:22"
+			},
+			{
+				"text" : "but in everything commending ourselves as servants of God, in much endurance, in afflictions, in hardships, in distresses, in beatings, in imprisonments, in tumults, in labors, in sleeplessness, in hunger, in purity, in knowledge, in patience, in kindness, in the Holy Spirit, in genuine love,",
+				"reference" : "2 Corinthians 6:4-6"
+			},
+			{
+				"text" : "But the fruit of the Spirit is love, joy, peace, patience, kindness, goodness, faithfulness, gentleness, self-control; against such things there is no law.",
+				"reference" : "Galatians 5:22-23"
+			},
+			{
+				"text" : "But God, being rich in mercy, because of His great love with which He loved us, even when we were dead in our transgressions, made us alive together with Christ (by grace you have been saved), and raised us up with Him, and seated us with Him in the heavenly places in Christ Jesus, so that in the ages to come He might show the surpassing riches of His grace in kindness toward us in Christ Jesus.",
+				"reference" : "Ephesians 2:4-7"
+			},
+			{
+				"text" : "So, as those who have been chosen of God, holy and beloved, put on a heart of compassion, kindness, humility, gentleness and patience;",
+				"reference" : "Colossians 3:12"
+			},
+			{
+				"text" : "But when the kindness of God our Savior and His love for mankind appeared, He saved us, not on the basis of deeds which we have done in righteousness, but according to His mercy, by the washing of regeneration and renewing by the Holy Spirit,",
+				"reference" : "2 Timothy 3:4-5"
 			}
 		]
 	},
@@ -58,8 +226,20 @@
 		"verses" : 
 		[
 			{
-				"text" : "",
-				"reference" : ""
+				"text" : "And concerning you, my brethren, I myself also am convinced that you yourselves are full of goodness, filled with all knowledge and able also to admonish one another.",
+				"reference" : "Romans 15:14"
+			},
+			{
+				"text" : "But the fruit of the Spirit is love, joy, peace, patience, kindness, goodness, faithfulness, gentleness, self-control; against such things there is no law.",
+				"reference" : "Galatians 5:22-23"
+			},
+			{
+				"text" : "Therefore do not be partakers with them; for you were formerly darkness, but now you are Light in the Lord; walk as children of Light (for the fruit of the Light consists in all goodness and righteousness and truth), trying to learn what is pleasing to the Lord.",
+				"reference" : "Ephesians 5:7-10"
+			},
+			{
+				"text" : "To this end also we pray for you always, that our God will count you worthy of your calling, and fulfill every desire for goodness and the work of faith with power, so that the name of our Lord Jesus will be glorified in you, and you in Him, according to the grace of our God and the Lord Jesus Christ.",
+				"reference" : "2 Thessalonians 1:11-12"
 			}
 		]
 	},
@@ -68,8 +248,36 @@
 		"verses" : 
 		[
 			{
-				"text" : "",
-				"reference" : ""
+				"text" : "Now when Jesus heard this, He marveled and said to those who were following, \"Truly I say to you, I have not found such great faith with anyone in Israel.\"",
+				"reference" : "Matthew 8:10"
+			},
+			{
+				"text" : "And they brought to Him a paralytic lying on a bed. Seeing their faith, Jesus said to the paralytic, \"Take courage, son; your sins are forgiven.\"",
+				"reference" : "Matthew 9:2"
+			},
+			{
+				"text" : "But Jesus turning and seeing her said, “Daughter, take courage; your faith has made you well.” At once the woman was made well.",
+				"reference" : "Matthew 9:22"
+			},
+			{
+				"text" : "When He entered the house, the blind men came up to Him, and Jesus said to them, \"Do you believe that I am able to do this?\" They said to Him, \"Yes, Lord.\" Then He touched their eyes, saying, \"It shall be done to you according to your faith.\"",
+				"reference" : "Matthew 9:28-29"
+			},
+			{
+				"text" : "Then Jesus said to her, \"O woman, your faith is great; it shall be done for you as you wish.\" And her daughter was healed at once.",
+				"reference" : "Matthew 15:28"
+			},
+			{
+				"text" : "And He said to them, \"Because of the littleness of your faith; for truly I say to you, if you have faith the size of a mustard seed, you will say to this mountain, 'Move from here to there,' and it will move; and nothing will be impossible to you.\"",
+				"reference" : "Matthew 17:20"
+			},
+			{
+				"text" : "And Jesus answered and said to them, \"Truly I say to you, if you have faith and do not doubt, you will not only do what was done to the fig tree, but even if you say to this mountain, 'Be taken up and cast into the sea,' it will happen.\"",
+				"reference" : "Matthew 21:21"
+			},
+			{
+				"text" : "Woe to you, scribes and Pharisees, hypocrites! For you tithe mint and dill and cummin, and have neglected the weightier provisions of the law: justice and mercy and faithfulness; but these are the things you should have done without neglecting the others.",
+				"reference" : "Matthew 23:23"
 			}
 		]
 	},
@@ -78,8 +286,48 @@
 		"verses" : 
 		[
 			{
-				"text" : "",
-				"reference" : ""
+				"text" : "What do you desire? Shall I come to you with a rod, or with love and a spirit of gentleness?",
+				"reference" : "1 Corinthians 4:21"
+			},
+			{
+				"text" : "Now I, Paul, myself urge you by the meekness and gentleness of Christ—I who am meek when face to face with you, but bold toward you when absent!",
+				"reference" : "2 Corinthians 10:1"
+			},
+			{
+				"text" : "But the fruit of the Spirit is love, joy, peace, patience, kindness, goodness, faithfulness, gentleness, self-control; against such things there is no law.",
+				"reference" : "Galatians 5:22-23"
+			},
+			{
+				"text" : "Brethren, even if anyone is caught in any trespass, you who are spiritual, restore such a one in a spirit of gentleness; each one looking to yourself, so that you too will not be tempted.",
+				"reference" : "Galatians 6:1"
+			},
+			{
+				"text" : "Therefore I, the prisoner of the Lord, implore you to walk in a manner worthy of the calling with which you have been called, with all humility and gentleness, with patience, showing tolerance for one another in love, being diligent to preserve the unity of the Spirit in the bond of peace.",
+				"reference" : "Ephesians 4:1-3"
+			},
+			{
+				"text" : "So, as those who have been chosen of God, holy and beloved, put on a heart of compassion, kindness, humility, gentleness and patience; bearing with one another, and forgiving each other, whoever has a complaint against anyone; just as the Lord forgave you, so also should you.",
+				"reference" : "Colossians 3:12-13"
+			},
+			{
+				"text" : "The Lord’s bond-servant must not be quarrelsome, but be kind to all, able to teach, patient when wronged, with gentleness correcting those who are in opposition, if perhaps God may grant them repentance leading to the knowledge of the truth,",
+				"reference" : "2 Timothy 2:24-25"
+			},
+			{
+				"text" : "Remind them to be subject to rulers, to authorities, to be obedient, to be ready for every good deed, to malign no one, to be peaceable, gentle, showing every consideration for all men.",
+				"reference" : "Titus 3:1-2"
+			},
+			{
+				"text" : "Therefore, putting aside all filthiness and all that remains of wickedness, in humility receive the word implanted, which is able to save your souls.",
+				"reference" : "James 1:21"
+			},
+			{
+				"text" : "Who among you is wise and understanding? Let him show by his good behavior his deeds in the gentleness of wisdom.",
+				"reference" : "James 3:13"
+			},
+			{
+				"text" : "But even if you should suffer for the sake of righteousness, you are blessed. AND DO NOT FEAR THEIR INTIMIDATION, AND DO NOT BE TROUBLED, but fnsanctify Christ as Lord in your hearts, always being ready to make a defense to everyone who asks you to give an account for the hope that is in you, yet with gentleness and reverence;",
+				"reference" : "1 Peter 3:14-15"
 			}
 		]
 	},
@@ -88,8 +336,16 @@
 		"verses" : 
 		[
 			{
-				"text" : "",
-				"reference" : ""
+				"text" : "But as he was discussing righteousness, self-control and the judgment to come, Felix became frightened and said, “Go away for the present, and when I find time I will summon you.",
+				"reference" : "Act 24:25"
+			},
+			{
+				"text" : "But the fruit of the Spirit is love, joy, peace, patience, kindness, goodness, faithfulness, gentleness, self-control; against such things there is no law.",
+				"reference" : "Galatians 5:22-23"
+			},
+			{
+				"text" : "Now for this very reason also, applying all diligence, in your faith supply moral excellence, and in your moral excellence, knowledge, and in your knowledge, self-control, and in your self-control, perseverance, and in your perseverance, godliness, and in your godliness, brotherly kindness, and in your brotherly kindness, love.",
+				"reference" : "2 Peter 1:5-7"
 			}
 		]
 	}

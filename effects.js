@@ -28,6 +28,7 @@ $(document).ready(function() {
 				interval = setInterval(function() { changeText(tabOpen.attr('id')); }, switchSpeed);
 			} else if(parseInt($(this).css('left')) === 0) {
 				clearInterval(interval);
+				prevVerse = null;
 				tabOpen.animate({left: "-=200"}, fadeSpeed, function() {});
 				tabOpen = null;
 				curText.fadeOut(fadeSpeed);
@@ -47,13 +48,12 @@ $(document).ready(function() {
 
 		function getVerse(fruit) {
 			var verses = getFruit(fruit).verses;
-			if(verses.length === 0) {
-				return {text: "", reference: ""};
-			}
 			var verse;
+			var tries = 0;
 			do {
 				verse = verses[Math.floor(Math.random()*verses.length)];
-			} while(verse === prevVerse);
+				tries += 1;
+			} while(verse === prevVerse && tries < 3);
 			prevVerse = verse;
 			return verse;
 		}
