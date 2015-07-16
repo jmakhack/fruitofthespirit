@@ -36,7 +36,7 @@ $(document).ready(function() {
 				curText.fadeIn(fadeSpeed);
 			}
 		});
-		
+
 		function changeText(fruit) {
 			curText.fadeOut(fadeSpeed);
 			var id = curText.selector === '#v1' ? $('#v2') : $('#v1');
@@ -60,9 +60,9 @@ $(document).ready(function() {
 
 		function getFruit(fruit) {
 			for(var i = 0; i < json.length; i++)
-    		if(json[i].fruit === fruit)
-    			return json[i];
-    		return null
+				if(json[i].fruit === fruit)
+					return json[i];
+			return null;
 		}
 	});
 });
