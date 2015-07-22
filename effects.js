@@ -7,7 +7,7 @@ $(document).ready(function() {
 		var interval;
 		var switchSpeed = 12000;
 		var prevVerse;
-		var reference;
+		var curVerse;
 
 		$('.fruit').hover(function() {
 			if(parseInt($(this).css('left')) === -200)
@@ -39,19 +39,16 @@ $(document).ready(function() {
 		});
 
 		$('.verse').click(function() {
-			if(tabOpen != null) {
-				var link = 'http://nasb.literalword.com/?q=' + reference;
-				var target = '_blank';
-				var newTab = window.open(link, target);
-			}
+			var link = 'http://nasb.literalword.com/?q=' + curVerse.reference;
+			var target = '_blank';
+			var newTab = window.open(link, target);
 		});
 
 		function changeText(fruit) {
 			curText.fadeOut(fadeSpeed);
 			var id = curText.selector === '#v1' ? $('#v2') : $('#v1');
-			var verse = getVerse(fruit);
-			id.html(verse.text+'<div class="reference">'+verse.reference+'</div>');
-			reference = verse.reference;
+			curVerse = getVerse(fruit);
+			id.html(curVerse.text + '<div class="reference">' + curVerse.reference + '</div>');
 			curText = id;
 			curText.fadeIn(fadeSpeed);
 		}
