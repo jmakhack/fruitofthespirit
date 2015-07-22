@@ -6,7 +6,6 @@ $(document).ready(function() {
 		var fadeSpeed = 800;
 		var interval;
 		var switchSpeed = 12000;
-		var prevVerse;
 		var curVerse;
 
 		$('.fruit').hover(function() {
@@ -29,7 +28,7 @@ $(document).ready(function() {
 				interval = setInterval(function() { changeText(tabOpen.attr('id')); }, switchSpeed);
 			} else if(parseInt($(this).css('left')) === 0) {
 				clearInterval(interval);
-				prevVerse = null;
+				curVerse = null;
 				tabOpen.animate({left: "-=200"}, fadeSpeed, function() {});
 				tabOpen = null;
 				curText.fadeOut(fadeSpeed);
@@ -61,10 +60,9 @@ $(document).ready(function() {
 			var verse;
 			var tries = 0;
 			do {
-				verse = verses[Math.floor(Math.random()*verses.length)];
-				tries += 1;
-			} while(verse === prevVerse && tries < 3);
-			prevVerse = verse;
+				verse = verses[Math.floor(Math.random() * verses.length)];
+				tries++;
+			} while(verse === curVerse && tries < 3);
 			return verse;
 		}
 
