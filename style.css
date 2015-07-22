@@ -1,10 +1,10 @@
 body {
-  padding: 0;
-  margin: 0; 
-  background-color: #12a6bd;
-  font-family: "Helvetica", "Arial", sans-serif;
-  font-weight: 300;
-  color: #ffffff;
+    padding: 0;
+    margin: 0; 
+    background-color: #12a6bd;
+    font-family: "Helvetica", "Arial", sans-serif;
+    font-weight: 300;
+    color: #ffffff;
 }
 
 .fruit {
