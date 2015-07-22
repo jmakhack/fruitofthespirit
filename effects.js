@@ -39,16 +39,19 @@ $(document).ready(function() {
 		});
 
 		$('.verse').click(function() {
-			var link = 'http://nasb.literalword.com/?q=' + curVerse.reference;
-			var target = '_blank';
-			var newTab = window.open(link, target);
+			var ref = curVerse.reference;
+			var colon = ref.indexOf(':');
+			var hyphen = ref.indexOf('-');
+			var chapter = ref.substring(0, colon);
+			var verse = ref.substring(colon + 1, hyphen != -1 ? hyphen : ref.length);
+			window.open('http://nasb.literalword.com/?h=' + verse + '&q=' + chapter, '_blank');
 		});
 
 		function changeText(fruit) {
-			curText.fadeOut(fadeSpeed);
 			var id = curText.selector === '#v1' ? $('#v2') : $('#v1');
 			curVerse = getVerse(fruit);
 			id.html(curVerse.text + '<div class="reference">' + curVerse.reference + '</div>');
+			curText.fadeOut(fadeSpeed);
 			curText = id;
 			curText.fadeIn(fadeSpeed);
 		}
