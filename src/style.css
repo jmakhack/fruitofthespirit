@@ -21,7 +21,6 @@ body {
     border-top-style: solid;
     border-bottom-style: solid;
     border-right-style: solid;
-    textTransform: capitalize;
     -moz-user-select: none; 
     -khtml-user-select: none; 
     -webkit-user-select: none; 

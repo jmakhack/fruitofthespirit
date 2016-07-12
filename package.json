@@ -1,7 +1,7 @@
 {
   "name": "fruitofthespirit",
   "version": "1.0.0",
-  "description": "Fruit of the Spirit =================",
+  "description": "Fruit of the Spirit Web App",
   "main": "webpack.config.js",
   "bin": {
     "fruitofthespirit": "app.bundle.js"
@@ -17,16 +17,19 @@
     "css-loader": "^0.23.1"
   },
   "devDependencies": {
+    "json-loader": "^0.5.4",
+    "static-loader": "^0.1.8",
+    "style-loader": "^0.13.1",
     "webpack": "^1.13.1"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "webpack"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jmakhack/fruitofthespirit.git"
   },
-  "author": "",
+  "author": "Joshua Himson Mak",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/jmakhack/fruitofthespirit/issues"

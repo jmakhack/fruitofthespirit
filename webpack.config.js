@@ -1,25 +1,30 @@
 const webpack = require('webpack');
 
 module.exports = {
-  entry: './src/app.js',
+  entry: './src/main.js',
   output: {
-    path: './bin',
-    filename: 'app.bundle.js',
+    path: './dist',
+    filename: 'fruitofthespirit.js'
   },
   module: {
-    loaders: [{
-      test: /\.jsx?$/,
-      exclude: /node_modules/,
-      loader: 'babel'
-      }, {
-      test: /\.css$/,
-      exclude: /node_modules/,
-      loader: 'css'
-      }, {
-      test: /\.json$/,
-      exclude: /node_modules/,
-      loader: 'json'
-    }]
+    loaders: [
+      {
+        test: /\.js$/,
+        loaders: ['babel']
+      },
+      {
+        test: /\.css$/,
+        loaders: ['style', 'css']
+      },
+      {
+        test: /\.json$/,
+        loaders: ['json']
+      },
+      {
+        test: /\.ico$/,
+        loaders: ['static']
+      }
+    ]
   },
   plugins: [
     new webpack.optimize.UglifyJsPlugin({
