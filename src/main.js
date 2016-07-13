@@ -1,13 +1,11 @@
 import $ from 'jquery';
 
-require("./style.css");
+require("./style.less");
 require("static?!./favicon.ico?output=favicon.ico");
 
 $(document).ready(function() {
 
-    var verses = require("./verses.json");
-    console.log(verses);
-
+    var versesJson = require("./verses.json");
     var tabOpen = null;
     var curText = $('.title');
     var fadeSpeed = 800;
@@ -17,10 +15,10 @@ $(document).ready(function() {
 
     $('.fruit').hover(function() {
         if(parseInt($(this).css('left')) === -200)
-            $(this).animate({left: "+=10"}, 0, function() {}); 
+            $(this).animate({left: "+=10"}, 0, function() {});
     }, function() {
         if(parseInt($(this).css('left')) === -190) 
-            $(this).animate({left: "-=10"}, 0, function() {}); 
+            $(this).animate({left: "-=10"}, 0, function() {});
     });
 
     $('.fruit').click(function() {
@@ -74,9 +72,9 @@ $(document).ready(function() {
     }
 
     function getFruit(fruit) {
-        for(var i = 0; i < verses.length; i++)
-            if(verses[i].fruit === fruit)
-                return verses[i];
+        for(var i = 0; i < versesJson.length; i++)
+            if(versesJson[i].fruit === fruit)
+                return versesJson[i];
         return null;
     }
 });

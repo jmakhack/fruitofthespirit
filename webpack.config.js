@@ -13,8 +13,8 @@ module.exports = {
         loaders: ['babel']
       },
       {
-        test: /\.css$/,
-        loaders: ['style', 'css']
+        test: /\.less$/,
+        loaders: ['style', 'css', 'less']
       },
       {
         test: /\.json$/,

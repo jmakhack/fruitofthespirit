@@ -1,0 +1,102 @@
+body {
+    padding: 0;
+    margin: 0; 
+    background-color: #12a6bd;
+    font-family: "Helvetica", "Arial", sans-serif;
+    font-weight: 300;
+    color: #ffffff;
+}
+
+#title {
+    left: 275px;
+    bottom: 125px;
+    font-size: 70px;
+    position: fixed;
+}
+
+#author {
+    left: 276px;
+    bottom: 100px;
+    font-size: 18px;
+    position: fixed;
+}
+
+.label {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 22px;
+}
+
+.verse {
+    left: 275px;
+    bottom: 150px;
+    right: 100px;
+    font-size: 40px;
+    position: fixed;
+}
+
+.reference {
+    bottom: 100px;
+    right: 100px;
+    font-size: 20px;
+    position: fixed;
+}
+
+.fruit(@bgcolor, @top) {
+    background-color: @bgcolor;
+    top: @top;
+    height: 50px;
+    width: 250px;
+    left: -200px;
+    cursor: pointer;
+    position: fixed;
+    display: table;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+    border-color: #FFFFFF;
+    border-width: 1px;
+    border-top-style: solid;
+    border-bottom-style: solid;
+    border-right-style: solid;
+    -moz-user-select: none; 
+    -khtml-user-select: none; 
+    -webkit-user-select: none; 
+    -o-user-select: none; 
+}
+
+#love {
+    .fruit(#DF01D7, 10px);
+}
+
+#joy {
+    .fruit(#00FFFF, 70px);
+}
+
+#peace {
+    .fruit(#01DF74, 130px);
+}
+
+#patience {
+    .fruit(#EFD000, 190px);
+}
+
+#kindness {
+    .fruit(#8258FA, 250px);
+}
+
+#goodness {
+    .fruit(#FF8000, 310px);
+}
+
+#faithfulness {
+    .fruit(#DF0174, 370px);
+}
+
+#gentleness {
+    .fruit(#CACACA, 430px);
+}
+
+#selfcontrol {
+    .fruit(#2E64FE, 490px);
+}
