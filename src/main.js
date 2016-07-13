@@ -15,26 +15,26 @@ $(document).ready(function() {
 
     $('.fruit').hover(function() {
         if(parseInt($(this).css('left')) === -200)
-            $(this).animate({left: "+=10"}, 0, function() {});
+            $(this).animate({left: "+=10"}, 0);
     }, function() {
-        if(parseInt($(this).css('left')) === -190) 
-            $(this).animate({left: "-=10"}, 0, function() {});
+        if(parseInt($(this).css('left')) === -190)
+            $(this).animate({left: "-=10"}, 0);
     });
 
     $('.fruit').click(function() {
         if(parseInt($(this).css('left')) === -190) {
             if(tabOpen != null) {
-                tabOpen.animate({left: "-=200"}, fadeSpeed, function() {});
+                tabOpen.animate({left: "-=200"}, fadeSpeed);
                 clearInterval(interval);
             }
-            $(this).animate({left: "+=190"}, fadeSpeed, function() {});
+            $(this).animate({left: "+=190"}, fadeSpeed);
             tabOpen = $(this);
             changeText(tabOpen.attr('id'));
             interval = setInterval(function() { changeText(tabOpen.attr('id')); }, switchSpeed);
         } else if(parseInt($(this).css('left')) === 0) {
             clearInterval(interval);
             curVerse = null;
-            tabOpen.animate({left: "-=200"}, fadeSpeed, function() {});
+            tabOpen.animate({left: "-=200"}, fadeSpeed);
             tabOpen = null;
             curText.fadeOut(fadeSpeed);
             curText = $('.title');
@@ -52,7 +52,7 @@ $(document).ready(function() {
     });
 
     function changeText(fruit) {
-        var id = curText.selector === '#v1' ? $('#v2') : $('#v1');
+        var id = curText[0].id === 'v1' ? $('#v2') : $('#v1');
         curVerse = getVerse(fruit);
         id.html(curVerse.text + '<div class="reference">' + curVerse.reference + '</div>');
         curText.fadeOut(fadeSpeed);
