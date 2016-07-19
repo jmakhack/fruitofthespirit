@@ -15,98 +15,68 @@ body {
     color: #FFF2a8;
 }
 
-#title {
-    left: 275px;
-    bottom: 125px;
-    font-size: 70px;
+.title {
     position: fixed;
 }
 
-#author {
-    left: 276px;
-    bottom: 100px;
-    font-size: 18px;
+.verse, .reference {
     position: fixed;
+    cursor: pointer;
 }
 
 .label {
     display: table-cell;
     text-align: center;
     vertical-align: middle;
-    font-size: 22px;
 }
 
-.verse {
-    left: 275px;
-    bottom: 150px;
-    right: 100px;
-    font-size: 40px;
-    position: fixed;
-    cursor: pointer;
-}
-
-.reference {
-    bottom: 100px;
-    right: 100px;
-    font-size: 20px;
-    position: fixed;
-    cursor: pointer;
-}
-
-.fruit(@bgcolor, @top) {
+.fruit(@bgcolor) {
     background-color: @bgcolor;
-    top: @top;
-    height: 50px;
-    width: 250px;
-    left: -200px;
     cursor: pointer;
     position: fixed;
     display: table;
-    border-top-right-radius: 6px;
-    border-bottom-right-radius: 6px;
     border-color: #FFFFFF;
-    border-width: 1px;
     border-top-style: solid;
     border-bottom-style: solid;
     border-right-style: solid;
-    -moz-user-select: none; 
-    -khtml-user-select: none; 
-    -webkit-user-select: none; 
-    -o-user-select: none; 
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
 }
 
 #love {
-    .fruit(#DF01D7, 10px);
+    .fruit(#DF01D7);
 }
 
 #joy {
-    .fruit(#00FFFF, 70px);
+    .fruit(#00FFFF);
 }
 
 #peace {
-    .fruit(#01DF74, 130px);
+    .fruit(#01DF74);
 }
 
 #patience {
-    .fruit(#EFD000, 190px);
+    .fruit(#EFD000);
 }
 
 #kindness {
-    .fruit(#8258FA, 250px);
+    .fruit(#8258FA);
 }
 
 #goodness {
-    .fruit(#FF8000, 310px);
+    .fruit(#FF8000);
 }
 
 #faithfulness {
-    .fruit(#DF0174, 370px);
+    .fruit(#DF0174);
 }
 
 #gentleness {
-    .fruit(#CACACA, 430px);
+    .fruit(#CACACA);
 }
 
 #selfcontrol {
-    .fruit(#2E64FE, 490px);
+    .fruit(#2E64FE);
 }

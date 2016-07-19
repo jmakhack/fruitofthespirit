@@ -1,40 +1,60 @@
-import $ from 'jquery';
+'use strict';
 
+import $ from 'jquery';
 require("./style.less");
-require("static?!./favicon.ico?output=favicon.ico");
 
 $(document).ready(function() {
 
-    var versesJson = require("./verses.json");
-    var tabOpen = null;
-    var curText = $('.title');
-    var fadeSpeed = 800;
-    var interval;
+    var versesJson  = require("./verses.json");
+    var tabOpen     = null;
+    var curText     = $('.title');
     var switchSpeed = 12000;
+    var fadeSpeed   = 800;
+
+    var tabWidth;
+    var interval;
     var curVerse;
+    var curFruit;
+
+    new vUnit({
+        CSSMap: {
+            '.vh_height'      : { property: 'height'    , reference: 'vh'   },
+            '.vh_width'       : { property: 'width'     , reference: 'vh'   },
+            '.vmin_font-size' : { property: 'font-size' , reference: 'vmin' },
+            '.vh_bottom'      : { property: 'bottom'    , reference: 'vh'   },
+            '.vh_top'         : { property: 'top'       , reference: 'vh'   },
+            '.vw_right'       : { property: 'right'     , reference: 'vw'   },
+            '.vw_left'        : { property: 'left'      , reference: 'vw'   },
+            '.vh_left'        : { property: 'left'      , reference: 'vh'   }
+        },
+        onResize: onResize
+    }).init();
 
     $('.fruit').hover(function() {
-        if(parseInt($(this).css('left')) === -200)
-            $(this).animate({left: "+=10"}, 0);
+        if(!$(this).hasClass('active'))
+            $(this).animate({left: tabWidth * -23/32}, 0);
     }, function() {
-        if(parseInt($(this).css('left')) === -190)
-            $(this).animate({left: "-=10"}, 0);
+        if(!$(this).hasClass('active'))
+            $(this).animate({left: tabWidth * -3/4}, 0);
     });
 
     $('.fruit').click(function() {
-        if(parseInt($(this).css('left')) === -190) {
+        if(!$(this).hasClass('active')) {
+            $(this).addClass('active');
             if(tabOpen != null) {
-                tabOpen.animate({left: "-=200"}, fadeSpeed);
+                tabOpen.removeClass('active');
+                tabOpen.animate({left: tabWidth * -3/4}, fadeSpeed);
                 clearInterval(interval);
             }
-            $(this).animate({left: "+=190"}, fadeSpeed);
+            $(this).animate({left: 0}, fadeSpeed);
             tabOpen = $(this);
             changeText(tabOpen.attr('id'));
             interval = setInterval(function() { changeText(tabOpen.attr('id')); }, switchSpeed);
-        } else if(parseInt($(this).css('left')) === 0) {
+        } else if($(this).hasClass('active')) {
+            $(this).removeClass('active');
             clearInterval(interval);
             curVerse = null;
-            tabOpen.animate({left: "-=200"}, fadeSpeed);
+            tabOpen.animate({left: tabWidth * -3/4}, fadeSpeed);
             tabOpen = null;
             curText.fadeOut(fadeSpeed);
             curText = $('.title');
@@ -54,7 +74,7 @@ $(document).ready(function() {
     function changeText(fruit) {
         var id = curText[0].id === 'v1' ? $('#v2') : $('#v1');
         curVerse = getVerse(fruit);
-        id.html(curVerse.text + '<div class="reference">' + curVerse.reference + '</div>');
+        id.html(curVerse.text + '<div class="reference vmin_font-size2 vw_right8 vh_top76">' + curVerse.reference + '</div>');
         curText.fadeOut(fadeSpeed);
         curText = id;
         curText.fadeIn(fadeSpeed);
@@ -76,6 +96,20 @@ $(document).ready(function() {
             if(versesJson[i].fruit === fruit)
                 return versesJson[i];
         return null;
+    }
+
+    function onResize() {
+        tabWidth = $(window).height() * 0.16;
+        for(var i = 0; i < versesJson.length; i++) {
+            var fruit = '#' + versesJson[i].fruit;
+            if (!$(fruit).hasClass('active')) {
+                $(fruit).css('left', tabWidth * -3/4);
+            }
+        }
+        $('.fruit').css('border-top-right-radius', tabWidth/45);
+        $('.fruit').css('border-bottom-right-radius', tabWidth/45);
+        $('.fruit').css('border-width', tabWidth/100);
+        $('.label').css('font-size', tabWidth/12);
     }
 });
 
