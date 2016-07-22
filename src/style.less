@@ -1,0 +1,82 @@
+body {
+    padding: 0;
+    margin: 0; 
+    background-color: #12a6bd;
+    font-family: "Helvetica", "Arial", sans-serif;
+    font-weight: 300;
+    color: #ffffff;
+}
+
+::selection {
+    color: #FFF2a8;
+}
+
+::-moz-selection {
+    color: #FFF2a8;
+}
+
+.title {
+    position: fixed;
+}
+
+.verse, .reference {
+    position: fixed;
+    cursor: pointer;
+}
+
+.label {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.fruit(@bgcolor) {
+    background-color: @bgcolor;
+    cursor: pointer;
+    position: fixed;
+    display: table;
+    border-color: #FFFFFF;
+    border-top-style: solid;
+    border-bottom-style: solid;
+    border-right-style: solid;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+}
+
+#love {
+    .fruit(#DF01D7);
+}
+
+#joy {
+    .fruit(#00FFFF);
+}
+
+#peace {
+    .fruit(#01DF74);
+}
+
+#patience {
+    .fruit(#EFD000);
+}
+
+#kindness {
+    .fruit(#8258FA);
+}
+
+#goodness {
+    .fruit(#FF8000);
+}
+
+#faithfulness {
+    .fruit(#DF0174);
+}
+
+#gentleness {
+    .fruit(#CACACA);
+}
+
+#selfcontrol {
+    .fruit(#2E64FE);
+}
