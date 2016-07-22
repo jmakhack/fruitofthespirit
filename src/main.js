@@ -5,24 +5,22 @@ require("./style.less");
 
 $(document).ready(function() {
 
-    var versesJson  = require("./verses.json");
-    var tabOpen     = null;
-    var curText     = $('.title');
-    var switchSpeed = 12000;
-    var fadeSpeed   = 800;
-
-    var tabWidth;
-    var interval;
-    var curVerse;
-    var curFruit;
+    var versesJson     = require("./verses.json");
+    var curText        = $('.title');
+    var titleSpeed     = 20000;
+    var switchSpeed    = 16000;
+    var fadeSpeed      = 800;
+    var changeInterval = createNewInterval('random', titleSpeed);
+    var numVerses      = versesJson.reduce(function(x,y) { return x + y.verses.length; }, 0);
+    var tabWidth       = $(window).height() * 0.16;
 
     new vUnit({
         CSSMap: {
             '.vh_height'      : { property: 'height'    , reference: 'vh'   },
             '.vh_width'       : { property: 'width'     , reference: 'vh'   },
             '.vmin_font-size' : { property: 'font-size' , reference: 'vmin' },
-            '.vh_bottom'      : { property: 'bottom'    , reference: 'vh'   },
             '.vh_top'         : { property: 'top'       , reference: 'vh'   },
+            '.vh_bottom'      : { property: 'bottom'    , reference: 'vh'   },
             '.vw_right'       : { property: 'right'     , reference: 'vw'   },
             '.vw_left'        : { property: 'left'      , reference: 'vw'   },
             '.vh_left'        : { property: 'left'      , reference: 'vh'   }
@@ -31,39 +29,30 @@ $(document).ready(function() {
     }).init();
 
     $('.fruit').hover(function() {
-        if(!$(this).hasClass('active'))
+        if (!$(this).hasClass('active')) {
             $(this).animate({left: tabWidth * -23/32}, 0);
+        }
     }, function() {
-        if(!$(this).hasClass('active'))
+        if (!$(this).hasClass('active')) {
             $(this).animate({left: tabWidth * -3/4}, 0);
+        }
     });
 
     $('.fruit').click(function() {
-        if(!$(this).hasClass('active')) {
-            $(this).addClass('active');
-            if(tabOpen != null) {
-                tabOpen.removeClass('active');
-                tabOpen.animate({left: tabWidth * -3/4}, fadeSpeed);
-                clearInterval(interval);
-            }
-            $(this).animate({left: 0}, fadeSpeed);
-            tabOpen = $(this);
-            changeText(tabOpen.attr('id'));
-            interval = setInterval(function() { changeText(tabOpen.attr('id')); }, switchSpeed);
-        } else if($(this).hasClass('active')) {
-            $(this).removeClass('active');
-            clearInterval(interval);
-            curVerse = null;
-            tabOpen.animate({left: tabWidth * -3/4}, fadeSpeed);
-            tabOpen = null;
-            curText.fadeOut(fadeSpeed);
-            curText = $('.title');
-            curText.fadeIn(fadeSpeed);
+        if (!$(this).hasClass('active')) {
+            var fruit = $(this).attr('id');
+            openTab(fruit);
+            changeText(fruit);
+            changeInterval(fruit, switchSpeed);
+        } else if ($(this).hasClass('active')) {
+            openTab(null);
+            changeInterval('random', titleSpeed);
+            fadeIn($('.title'));
         }
     });
 
     $('.verse').click(function() {
-        var ref = curVerse.reference;
+        var ref = $(this).find('.reference').text();
         var colon = ref.indexOf(':');
         var hyphen = ref.indexOf('-');
         var chapter = ref.substring(0, colon);
@@ -73,34 +62,82 @@ $(document).ready(function() {
 
     function changeText(fruit) {
         var id = curText[0].id === 'v1' ? $('#v2') : $('#v1');
-        curVerse = getVerse(fruit);
+        var curVerse = getVerse(fruit, curText[0].id);
         id.html(curVerse.text + '<div class="reference vmin_font-size2 vw_right8 vh_top76">' + curVerse.reference + '</div>');
-        curText.fadeOut(fadeSpeed);
-        curText = id;
-        curText.fadeIn(fadeSpeed);
+        fadeIn(id);
     }
 
-    function getVerse(fruit) {
-        var verses = getFruit(fruit).verses;
+    function getVerse(fruit, id) {
         var verse;
         var tries = 0;
         do {
-            verse = verses[Math.floor(Math.random() * verses.length)];
-            tries++;
-        } while(verse === curVerse && tries < 3);
+            verse = getRandomVerse(fruit);
+        } while (verse.reference === $(id).find('.reference').text() && tries++ < 10);
         return verse;
     }
 
-    function getFruit(fruit) {
-        for(var i = 0; i < versesJson.length; i++)
-            if(versesJson[i].fruit === fruit)
-                return versesJson[i];
+    function getRandomVerse(fruit) {
+        if (fruit === 'random') {
+            changeInterval('random', switchSpeed);
+            var index = Math.floor(Math.random() * numVerses);
+            for (var i = 0; i < versesJson.length; i++) {
+                if (index < versesJson[i].verses.length) {
+                    openTab(versesJson[i].fruit);
+                    return versesJson[i].verses[index];
+                }
+                index -= versesJson[i].verses.length;
+            }
+        } else {
+            var verses = getFruit(fruit).verses;
+            return verses[Math.floor(Math.random() * verses.length)];
+        }
         return null;
+    }
+
+    function getFruit(fruit) {
+        for (var i = 0; i < versesJson.length; i++) {
+            if (versesJson[i].fruit === fruit) {
+                return versesJson[i];
+            }
+        }
+        return null;
+    }
+
+    function openTab(fruit) {
+        for (var i = 0; i < versesJson.length; i++) {
+            var tab = $('#' + versesJson[i].fruit);
+            if (tab.hasClass('active') && versesJson[i].fruit != fruit) {
+                tab.removeClass('active');
+                tab.animate({left: tabWidth * -3/4}, fadeSpeed);
+            }
+        }
+        tab = $('#' + fruit);
+        if (fruit != null && !tab.hasClass('active')) {
+            tab.addClass('active');
+            tab.animate({left: 0}, fadeSpeed);
+        }
+    }
+
+    function createNewInterval(fruit, speed) {
+        var interval = setInterval(function() { changeText(fruit); }, speed);
+        return function(f, s) {
+            if (!(fruit == f && speed == s)) {
+                fruit = f, speed = s;
+                clearInterval(interval);
+                interval = setInterval(function() { changeText(f); }, s);
+            }
+        }
+    }
+
+    function fadeIn(text) {
+        curText.fadeOut(fadeSpeed);
+        curText = text;
+        curText.fadeIn(fadeSpeed);
     }
 
     function onResize() {
         tabWidth = $(window).height() * 0.16;
-        for(var i = 0; i < versesJson.length; i++) {
+        for (var i = 0; i < versesJson.length; i++) {
             var fruit = '#' + versesJson[i].fruit;
             if (!$(fruit).hasClass('active')) {
                 $(fruit).css('left', tabWidth * -3/4);
