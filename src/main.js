@@ -72,7 +72,7 @@ $(document).ready(function() {
         var tries = 0;
         do {
             verse = getRandomVerse(fruit);
-        } while (verse.reference === $(id).find('.reference').text() && tries++ < 10);
+        } while (verse.reference === $('#' + id).find('.reference').text() && tries++ < 10);
         return verse;
     }
 
