@@ -11,7 +11,7 @@ $(document).ready(function() {
     var switchSpeed    = 16000;
     var fadeSpeed      = 800;
     var changeInterval = createNewInterval('random', titleSpeed);
-    var numVerses      = versesJson.reduce(function(x,y) { return x + y.verses.length; }, 0);
+    var sumLogVerses   = versesJson.reduce(function(x,y) { return x + Math.log(y.verses.length); }, 0);
     var tabWidth       = $(window).height() * 0.16;
 
     new vUnit({
@@ -41,7 +41,6 @@ $(document).ready(function() {
     $('.fruit').click(function() {
         if (!$(this).hasClass('active')) {
             var fruit = $(this).attr('id');
-            openTab(fruit);
             changeText(fruit);
             changeInterval(fruit, switchSpeed);
         } else if ($(this).hasClass('active')) {
@@ -61,37 +60,37 @@ $(document).ready(function() {
     });
 
     function changeText(fruit) {
+        changeInterval(fruit, switchSpeed);
+        if (fruit === 'random') {
+            fruit = getRandomFruit();
+        }
         var id = curText[0].id === 'v1' ? $('#v2') : $('#v1');
         var curVerse = getVerse(fruit, curText[0].id);
         id.html(curVerse.text + '<div class="reference vmin_font-size2 vw_right8 vh_top76">' + curVerse.reference + '</div>');
+        openTab(fruit);
         fadeIn(id);
+    }
+
+    function getRandomFruit() {
+        var rand = Math.random();
+        for (var i = 0; i < versesJson.length; i++) {
+            var logPercentage = Math.log(versesJson[i].verses.length) / sumLogVerses;
+            if (rand < logPercentage) {
+                return versesJson[i].fruit;
+            }
+            rand -= logPercentage;
+        }
+        return null;
     }
 
     function getVerse(fruit, id) {
         var verse;
+        var verses = getFruit(fruit).verses;
         var tries = 0;
         do {
-            verse = getRandomVerse(fruit);
+            verse = verses[Math.floor(Math.random() * verses.length)];
         } while (verse.reference === $('#' + id).find('.reference').text() && tries++ < 10);
         return verse;
-    }
-
-    function getRandomVerse(fruit) {
-        if (fruit === 'random') {
-            changeInterval('random', switchSpeed);
-            var index = Math.floor(Math.random() * numVerses);
-            for (var i = 0; i < versesJson.length; i++) {
-                if (index < versesJson[i].verses.length) {
-                    openTab(versesJson[i].fruit);
-                    return versesJson[i].verses[index];
-                }
-                index -= versesJson[i].verses.length;
-            }
-        } else {
-            var verses = getFruit(fruit).verses;
-            return verses[Math.floor(Math.random() * verses.length)];
-        }
-        return null;
     }
 
     function getFruit(fruit) {
