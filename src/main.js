@@ -59,6 +59,10 @@ $(document).ready(function() {
         window.open('http://nasb.literalword.com/?h=' + verse + '&q=' + chapter, '_blank');
     });
 
+    $('#subtitle').click(function() {
+        window.open('http://nasb.literalword.com/?q=galations+5%3A22-23', '_blank');
+    });
+
     function changeText(fruit) {
         changeInterval(fruit, switchSpeed);
         if (fruit === 'random') {
