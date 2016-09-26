@@ -11,7 +11,7 @@ $(document).ready(function() {
     var switchSpeed    = 16000;
     var fadeSpeed      = 800;
     var changeInterval = createNewInterval('random', titleSpeed);
-    var sumLogVerses   = versesJson.reduce(function(x,y) { return x + Math.log(y.verses.length); }, 0);
+    var sumLogVerses   = versesJson.reduce((x,y) => x + Math.log(y.verses.length), 0);
     var tabWidth       = $(window).height() * 0.16;
 
     new vUnit({
@@ -122,12 +122,12 @@ $(document).ready(function() {
     }
 
     function createNewInterval(fruit, speed) {
-        var interval = setInterval(function() { changeText(fruit); }, speed);
+        var interval = setInterval(() => changeText(fruit), speed);
         return function(f, s) {
             if (!(fruit == f && speed == s)) {
                 fruit = f, speed = s;
                 clearInterval(interval);
-                interval = setInterval(function() { changeText(f); }, s);
+                interval = setInterval(() => changeText(f), s);
             }
         }
     }
