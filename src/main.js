@@ -56,7 +56,7 @@ $(document).ready(function() {
         var hyphen = ref.indexOf('-');
         var chapter = ref.substring(0, colon);
         var verse = ref.substring(colon + 1, hyphen != -1 ? hyphen : ref.length);
-        window.open('http://nasb.literalword.com/?h=' + verse + '&q=' + chapter, '_blank');
+        window.open(`http://nasb.literalword.com/?h=${verse}&q=${chapter}`, '_blank');
     });
 
     $('#subtitle').click(function() {
@@ -70,7 +70,7 @@ $(document).ready(function() {
         }
         var id = curText[0].id === 'v1' ? $('#v2') : $('#v1');
         var curVerse = getVerse(fruit, curText[0].id);
-        id.html(curVerse.text + '<div class="reference vmin_font-size2 vw_right8 vh_top76">' + curVerse.reference + '</div>');
+        id.html(`${curVerse.text}<div class="reference vmin_font-size2 vw_right8 vh_top76">${curVerse.reference}</div>`);
         openTab(fruit);
         fadeIn(id);
     }
@@ -93,7 +93,7 @@ $(document).ready(function() {
         var tries = 0;
         do {
             verse = verses[Math.floor(Math.random() * verses.length)];
-        } while (verse.reference === $('#' + id).find('.reference').text() && tries++ < 10);
+        } while (verse.reference === $(`#${id}`).find('.reference').text() && tries++ < 10);
         return verse;
     }
 
@@ -108,13 +108,13 @@ $(document).ready(function() {
 
     function openTab(fruit) {
         for (var i = 0; i < versesJson.length; i++) {
-            var tab = $('#' + versesJson[i].fruit);
+            var tab = $(`#${versesJson[i].fruit}`);
             if (tab.hasClass('active') && versesJson[i].fruit != fruit) {
                 tab.removeClass('active');
                 tab.animate({left: tabWidth * -3/4}, fadeSpeed);
             }
         }
-        tab = $('#' + fruit);
+        tab = $(`#${fruit}`);
         if (fruit != null && !tab.hasClass('active')) {
             tab.addClass('active');
             tab.animate({left: 0}, fadeSpeed);
@@ -141,7 +141,7 @@ $(document).ready(function() {
     function onResize() {
         tabWidth = $(window).height() * 0.16;
         for (var i = 0; i < versesJson.length; i++) {
-            var fruit = '#' + versesJson[i].fruit;
+            var fruit = `#${versesJson[i].fruit}`;
             if (!$(fruit).hasClass('active')) {
                 $(fruit).css('left', tabWidth * -3/4);
             }
