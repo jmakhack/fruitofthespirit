@@ -5,16 +5,16 @@ require("./style.less");
 
 $(document).ready(function() {
 
-    const titleSpeed     = 20000;
-    const switchSpeed    = 16000;
-    const fadeSpeed      = 800;
+    const titleSpeed  = 20000;
+    const switchSpeed = 16000;
+    const fadeSpeed   = 800;
 
     const versesJson     = require("./verses.json");
     const changeInterval = createNewInterval('random', titleSpeed);
     const sumLogVerses   = versesJson.reduce((x,y) => x + Math.log(y.verses.length), 0);
 
-    let curText          = $('.title');
-    let tabWidth         = $(window).height() * 0.16;
+    let curText  = $('.title');
+    let tabWidth = $(window).height() * 0.16;
 
     new vUnit({
         CSSMap: {
@@ -42,7 +42,7 @@ $(document).ready(function() {
 
     $('.fruit').click(function() {
         if (!$(this).hasClass('active')) {
-            let fruit = $(this).attr('id');
+            const fruit = $(this).attr('id');
             changeText(fruit);
             changeInterval(fruit, switchSpeed);
         } else if ($(this).hasClass('active')) {
@@ -53,11 +53,11 @@ $(document).ready(function() {
     });
 
     $('.verse').click(function() {
-        const ref = $(this).find('.reference').text();
-        const colon = ref.indexOf(':');
-        const hyphen = ref.indexOf('-');
+        const ref     = $(this).find('.reference').text();
+        const colon   = ref.indexOf(':');
+        const hyphen  = ref.indexOf('-');
         const chapter = ref.substring(0, colon);
-        const verse = ref.substring(colon + 1, hyphen != -1 ? hyphen : ref.length);
+        const verse   = ref.substring(colon + 1, hyphen != -1 ? hyphen : ref.length);
         window.open(`http://nasb.literalword.com/?h=${verse}&q=${chapter}`, '_blank');
     });
 
