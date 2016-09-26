@@ -5,14 +5,15 @@ require("./style.less");
 
 $(document).ready(function() {
 
-    var versesJson     = require("./verses.json");
-    var curText        = $('.title');
-    var titleSpeed     = 20000;
-    var switchSpeed    = 16000;
-    var fadeSpeed      = 800;
-    var changeInterval = createNewInterval('random', titleSpeed);
-    var sumLogVerses   = versesJson.reduce((x,y) => x + Math.log(y.verses.length), 0);
-    var tabWidth       = $(window).height() * 0.16;
+    const versesJson     = require("./verses.json");
+    const titleSpeed     = 20000;
+    const switchSpeed    = 16000;
+    const fadeSpeed      = 800;
+    const changeInterval = createNewInterval('random', titleSpeed);
+    const sumLogVerses   = versesJson.reduce((x,y) => x + Math.log(y.verses.length), 0);
+
+    let curText          = $('.title');
+    let tabWidth         = $(window).height() * 0.16;
 
     new vUnit({
         CSSMap: {
@@ -40,7 +41,7 @@ $(document).ready(function() {
 
     $('.fruit').click(function() {
         if (!$(this).hasClass('active')) {
-            var fruit = $(this).attr('id');
+            let fruit = $(this).attr('id');
             changeText(fruit);
             changeInterval(fruit, switchSpeed);
         } else if ($(this).hasClass('active')) {
@@ -51,11 +52,11 @@ $(document).ready(function() {
     });
 
     $('.verse').click(function() {
-        var ref = $(this).find('.reference').text();
-        var colon = ref.indexOf(':');
-        var hyphen = ref.indexOf('-');
-        var chapter = ref.substring(0, colon);
-        var verse = ref.substring(colon + 1, hyphen != -1 ? hyphen : ref.length);
+        const ref = $(this).find('.reference').text();
+        const colon = ref.indexOf(':');
+        const hyphen = ref.indexOf('-');
+        const chapter = ref.substring(0, colon);
+        const verse = ref.substring(colon + 1, hyphen != -1 ? hyphen : ref.length);
         window.open(`http://nasb.literalword.com/?h=${verse}&q=${chapter}`, '_blank');
     });
 
@@ -68,17 +69,18 @@ $(document).ready(function() {
         if (fruit === 'random') {
             fruit = getRandomFruit();
         }
-        var id = curText[0].id === 'v1' ? $('#v2') : $('#v1');
-        var curVerse = getVerse(fruit, curText[0].id);
+        const id = curText[0].id === 'v1' ? $('#v2') : $('#v1');
+        const curVerse = getVerse(fruit, curText[0].id);
         id.html(`${curVerse.text}<div class="reference vmin_font-size2 vw_right8 vh_top76">${curVerse.reference}</div>`);
         openTab(fruit);
         fadeIn(id);
     }
 
     function getRandomFruit() {
-        var rand = Math.random();
-        for (var i = 0; i < versesJson.length; i++) {
-            var logPercentage = Math.log(versesJson[i].verses.length) / sumLogVerses;
+        let rand = Math.random();
+        let logPercentage;
+        for (let i = 0; i < versesJson.length; i++) {
+            logPercentage = Math.log(versesJson[i].verses.length) / sumLogVerses;
             if (rand < logPercentage) {
                 return versesJson[i].fruit;
             }
@@ -88,9 +90,9 @@ $(document).ready(function() {
     }
 
     function getVerse(fruit, id) {
-        var verse;
-        var verses = getFruit(fruit).verses;
-        var tries = 0;
+        const verses = getFruit(fruit).verses;
+        let tries = 0;
+        let verse;
         do {
             verse = verses[Math.floor(Math.random() * verses.length)];
         } while (verse.reference === $(`#${id}`).find('.reference').text() && tries++ < 10);
@@ -98,7 +100,7 @@ $(document).ready(function() {
     }
 
     function getFruit(fruit) {
-        for (var i = 0; i < versesJson.length; i++) {
+        for (let i = 0; i < versesJson.length; i++) {
             if (versesJson[i].fruit === fruit) {
                 return versesJson[i];
             }
@@ -107,8 +109,8 @@ $(document).ready(function() {
     }
 
     function openTab(fruit) {
-        for (var i = 0; i < versesJson.length; i++) {
-            var tab = $(`#${versesJson[i].fruit}`);
+        for (let i = 0; i < versesJson.length; i++) {
+            const tab = $(`#${versesJson[i].fruit}`);
             if (tab.hasClass('active') && versesJson[i].fruit != fruit) {
                 tab.removeClass('active');
                 tab.animate({left: tabWidth * -3/4}, fadeSpeed);
@@ -122,7 +124,7 @@ $(document).ready(function() {
     }
 
     function createNewInterval(fruit, speed) {
-        var interval = setInterval(() => changeText(fruit), speed);
+        let interval = setInterval(() => changeText(fruit), speed);
         return function(f, s) {
             if (!(fruit == f && speed == s)) {
                 fruit = f, speed = s;
@@ -140,8 +142,9 @@ $(document).ready(function() {
 
     function onResize() {
         tabWidth = $(window).height() * 0.16;
-        for (var i = 0; i < versesJson.length; i++) {
-            var fruit = `#${versesJson[i].fruit}`;
+        let fruit;
+        for (let i = 0; i < versesJson.length; i++) {
+            fruit = `#${versesJson[i].fruit}`;
             if (!$(fruit).hasClass('active')) {
                 $(fruit).css('left', tabWidth * -3/4);
             }
