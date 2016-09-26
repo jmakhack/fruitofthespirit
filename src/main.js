@@ -5,10 +5,11 @@ require("./style.less");
 
 $(document).ready(function() {
 
-    const versesJson     = require("./verses.json");
     const titleSpeed     = 20000;
     const switchSpeed    = 16000;
     const fadeSpeed      = 800;
+
+    const versesJson     = require("./verses.json");
     const changeInterval = createNewInterval('random', titleSpeed);
     const sumLogVerses   = versesJson.reduce((x,y) => x + Math.log(y.verses.length), 0);
 
@@ -90,7 +91,7 @@ $(document).ready(function() {
     }
 
     function getVerse(fruit, id) {
-        const verses = getFruit(fruit).verses;
+        const verses = versesJson.find(f => f.fruit === fruit).verses;
         let tries = 0;
         let verse;
         do {
@@ -99,18 +100,10 @@ $(document).ready(function() {
         return verse;
     }
 
-    function getFruit(fruit) {
-        for (let i = 0; i < versesJson.length; i++) {
-            if (versesJson[i].fruit === fruit) {
-                return versesJson[i];
-            }
-        }
-        return null;
-    }
-
     function openTab(fruit) {
+        let tab;
         for (let i = 0; i < versesJson.length; i++) {
-            const tab = $(`#${versesJson[i].fruit}`);
+            tab = $(`#${versesJson[i].fruit}`);
             if (tab.hasClass('active') && versesJson[i].fruit != fruit) {
                 tab.removeClass('active');
                 tab.animate({left: tabWidth * -3/4}, fadeSpeed);
