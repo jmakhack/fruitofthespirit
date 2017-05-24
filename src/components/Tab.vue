@@ -1,7 +1,7 @@
 <template>
   <div
     class="tab"
-    :id="fruit.replace(/\s/, '').toLowerCase()"
+    :id="getFruitId"
     :style="tabPosition"
     @click="setActiveTab(fruit)"
     @mouseenter="left = -11.5"
@@ -28,6 +28,9 @@ export default {
     ...mapGetters([
       'activeTab'
     ]),
+    getFruitId () {
+      return this.fruit.replace(/\s/, '').toLowerCase()
+    },
     tabPosition () {
       this.$set(this.tabData, 'activeTab', this.activeTab)
       let transition = 0.8
