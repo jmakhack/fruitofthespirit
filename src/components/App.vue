@@ -1,16 +1,34 @@
 <template>
   <div id="app">
-    <tabs></tabs>
+    <tab
+      v-for='fruit in fruits'
+      :fruit=fruit
+      :isActive='fruit===activeTab'
+      @clicked='changeActiveTab'
+    />
   </div>
 </template>
 
 <script>
-import Tabs from './Tabs'
+import Tab from './Tab'
+
+const fruits = ['Love', 'Joy', 'Peace', 'Patience', 'Kindness', 'Goodness', 'Faithfulness', 'Gentleness', 'Self Control']
 
 export default {
   name: 'app',
   components: {
-    Tabs
+    Tab
+  },
+  methods: {
+    changeActiveTab (fruit) {
+      this.activeTab = this.activeTab === fruit ? '' : fruit
+    }
+  },
+  data () {
+    return {
+      fruits: fruits,
+      activeTab: ''
+    }
   }
 }
 </script>
