@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    <tabs></tabs>
     <tab
       v-for='fruit in fruits'
       :fruit=fruit
