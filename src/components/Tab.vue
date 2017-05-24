@@ -3,7 +3,7 @@
     class="tab"
     :id="fruit.replace(/\s/, '').toLowerCase()"
     :style="tabPosition"
-    @click="setActiveTab(fruit)"
+    @click="onClickTab(fruit)"
     @mouseenter="left = -11.5"
     @mouseleave="left = -12">
     <div class="label">
@@ -13,31 +13,18 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex'
-
 export default {
   name: 'tab',
-  props: ['fruit'],
+  props: ['fruit', 'isActive'],
   data () {
     return {
-      tabData: {},
       left: -12
     }
   },
   computed: {
-    ...mapGetters([
-      'activeTab'
-    ]),
     tabPosition () {
-      this.$set(this.tabData, 'activeTab', this.activeTab)
-      let transition = 0.8
-      if (this.left === 0) {
-        this.left = -12
-      } else if (this.activeTab === this.fruit) {
-        this.left = 0
-      } else {
-        transition = 0.1
-      }
+      const transition = 0.8
+      this.left = this.isActive ? 0 : -12
       return {
         '-webkit-transition': `left ease-out ${transition}s`,
         transition: `left ease-out ${transition}s`,
@@ -46,9 +33,9 @@ export default {
     }
   },
   methods: {
-    ...mapActions([
-      'setActiveTab'
-    ])
+    onClickTab (fruit) {
+      this.$emit('clicked', fruit)
+    }
   }
 }
 </script>
