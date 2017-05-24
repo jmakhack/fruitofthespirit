@@ -69,6 +69,7 @@ export default {
   border-bottom-right-radius: .36vh;
   border-width: .16vh;
   border-color: #FFFFFF;
+  user-select: none;
   -moz-user-select: none;
   -khtml-user-select: none;
   -webkit-user-select: none;
