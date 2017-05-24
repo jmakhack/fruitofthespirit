@@ -1,16 +1,27 @@
 <template>
   <div id="app">
     <tabs></tabs>
+    <tab
+      v-for='fruit in fruits'
+      :fruit=fruit
+    />
   </div>
 </template>
 
 <script>
-import Tabs from './Tabs'
+import Tab from './Tab'
+
+const fruits = ['Love', 'Joy', 'Peace', 'Patience', 'Kindness', 'Goodness', 'Faithfulness', 'Gentleness', 'Self Control']
 
 export default {
   name: 'app',
   components: {
-    Tabs
+    Tab
+  },
+  data () {
+    return {
+      fruits: fruits,
+    }
   }
 }
 </script>
