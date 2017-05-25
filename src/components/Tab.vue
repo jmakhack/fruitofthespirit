@@ -26,8 +26,14 @@ export default {
       return this.fruit.replace(/\s/, '').toLowerCase()
     },
     tabPosition () {
-      const transition = 0.8
-      this.left = this.isActive ? 0 : -12
+      let transition = 0.8
+      if (this.left === 0) {
+        this.left = -12
+      } else if (this.isActive) {
+        this.left = 0
+      } else {
+        transition = 0.1
+      }
       return {
         '-webkit-transition': `left ease-out ${transition}s`,
         transition: `left ease-out ${transition}s`,
