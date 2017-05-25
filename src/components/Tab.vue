@@ -3,7 +3,7 @@
     class="tab"
     :id="getFruitId"
     :style="tabPosition"
-    @click="onClickTab(fruit)"
+    @click="onClickTab"
     @mouseenter="left = -11.5"
     @mouseleave="left = -12">
     <div class="label">
@@ -18,7 +18,9 @@ export default {
   props: ['fruit', 'isActive'],
   data () {
     return {
-      left: -12
+      left: -12,
+      tabOpened: false,
+      timeout: null
     }
   },
   computed: {
@@ -26,24 +28,24 @@ export default {
       return this.fruit.replace(/\s/, '').toLowerCase()
     },
     tabPosition () {
-      let transition = 0.8
-      if (this.left === 0) {
-        this.left = -12
-      } else if (this.isActive) {
-        this.left = 0
-      } else {
-        transition = 0.1
+      if (!this.isActive && this.tabOpened) {
+        this.timeout = setTimeout(() => { this.tabOpened = false }, 800)
+      } else if (this.isActive && !this.tabOpened) {
+        this.tabOpened = true
+        clearTimeout(this.timeout)
       }
+      const transition = this.tabOpened ? 0.8 : 0.1
+      const left = this.isActive ? 0 : this.left
       return {
         '-webkit-transition': `left ease-out ${transition}s`,
         transition: `left ease-out ${transition}s`,
-        left: `${this.left}vh`
+        left: `${left}vh`
       }
     }
   },
   methods: {
-    onClickTab (fruit) {
-      this.$emit('clicked', fruit)
+    onClickTab () {
+      this.$emit('clicked', this.fruit)
     }
   }
 }
