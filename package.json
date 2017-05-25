@@ -17,6 +17,7 @@
     "css-loader": "^0.25.0",
     "es6-promise": "^4.0.5",
     "es6-promise-polyfill": "^1.2.0",
+    "json-loader": "^0.5.4",
     "less-loader": "^2.2.3",
     "lodash": "^4.16.6",
     "promise-polyfill": "^6.0.2",
