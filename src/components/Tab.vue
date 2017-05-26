@@ -1,41 +1,45 @@
 <template>
   <div
     class="tab"
-    :id="getFruitId"
+    :id="fruitId"
     :style="tabPosition"
     @click="onClickTab"
-    @mouseenter="left = -11.5"
-    @mouseleave="left = -12">
-    <div class="label">
-      {{ fruit }}
-    </div>
+    @mouseenter="isMouseOver = true"
+    @mouseleave="isMouseOver = false">
+    <div class="label">{{ fruit }}</div>
   </div>
 </template>
 
 <script>
 export default {
   name: 'tab',
-  props: ['fruit', 'isActive'],
+  props: {
+    fruit: {
+      type: String,
+      required: true
+    },
+    isActive: Boolean
+  },
   data () {
     return {
-      left: -12,
-      tabOpened: false,
-      timeout: null
+      isMouseOver: false,
+      isTabOpen: false,
+      timeoutId: null
     }
   },
   computed: {
-    getFruitId () {
+    fruitId () {
       return this.fruit.replace(/\s/, '').toLowerCase()
     },
     tabPosition () {
-      if (!this.isActive && this.tabOpened) {
-        this.timeout = setTimeout(() => { this.tabOpened = false }, 800)
-      } else if (this.isActive && !this.tabOpened) {
-        this.tabOpened = true
-        clearTimeout(this.timeout)
+      if (!this.isActive && this.isTabOpen) {
+        this.timeoutId = setTimeout(() => { this.isTabOpen = false }, 800)
+      } else if (this.isActive && !this.isTabOpen) {
+        this.isTabOpen = true
+        clearTimeout(this.timeoutId)
       }
-      const transition = this.tabOpened ? 0.8 : 0.1
-      const left = this.isActive ? 0 : this.left
+      const transition = this.isTabOpen ? 0.8 : 0.1
+      const left = this.isActive ? 0 : (this.isMouseOver ? -11.5 : -12)
       return {
         '-webkit-transition': `left ease-out ${transition}s`,
         transition: `left ease-out ${transition}s`,

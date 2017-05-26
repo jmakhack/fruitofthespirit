@@ -1,10 +1,10 @@
 <template>
   <div id="app">
     <tab
-      v-for='fruit in fruits'
-      :fruit=fruit
-      :isActive='fruit===activeTab'
-      @clicked='changeActiveTab'
+      v-for="fruit in fruits"
+      :fruit="fruit"
+      :isActive="fruit === activeTab"
+      @clicked="changeActiveTab"
     />
   </div>
 </template>
@@ -19,15 +19,15 @@ export default {
   components: {
     Tab
   },
-  methods: {
-    changeActiveTab (fruit) {
-      this.activeTab = this.activeTab === fruit ? '' : fruit
-    }
-  },
   data () {
     return {
       fruits: fruits,
       activeTab: ''
+    }
+  },
+  methods: {
+    changeActiveTab (fruit) {
+      this.activeTab = this.activeTab === fruit ? '' : fruit
     }
   }
 }
